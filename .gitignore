@@ -1,0 +1,7 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+wwwroot/uploads/*
+!wwwroot/uploads/.gitkeep

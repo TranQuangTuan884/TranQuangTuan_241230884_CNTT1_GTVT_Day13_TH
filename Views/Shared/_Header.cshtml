@@ -1,0 +1,22 @@
+<div class="header">
+  <div class="header_top">
+    <div class="logo"><a asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="Online Store" /></a></div>
+    <div class="cart"><p>Chào mừng đến với cửa hàng trực tuyến! <span>Giỏ hàng:</span> 0 sản phẩm</p></div>
+    <div class="clear"></div>
+  </div>
+  <div class="header_bottom">
+    <div class="menu"><ul>
+      <li class="active"><a asp-controller="Home" asp-action="Index">@(ViewBag.StudentName ?? "Họ Tên Sinh Viên")</a></li>
+      @if (ViewBag.LoaiHang is IEnumerable<LoaiHang> categories)
+      {
+        foreach (var category in categories)
+        {
+          <li><a href="#" class="category-filter" data-id="@category.MaLoai">@category.TenLoai</a></li>
+        }
+      }
+      <div class="clear"></div>
+    </ul></div>
+    <div class="search_box"><form onsubmit="return false"><input type="text" placeholder="Tìm kiếm" /></form></div>
+    <div class="clear"></div>
+  </div>
+</div>

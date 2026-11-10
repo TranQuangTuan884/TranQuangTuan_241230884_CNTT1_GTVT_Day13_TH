@@ -1,0 +1,13 @@
+@model HangHoa
+<div class="content_top"><div class="heading"><h3>Thêm hàng hóa mới</h3></div><div class="clear"></div></div>
+<div class="form-panel">
+<form asp-controller="HangHoa" asp-action="Create" method="post" enctype="multipart/form-data">
+  <div asp-validation-summary="All" class="validation-summary-errors"></div>
+  <div class="form-row"><label asp-for="TenHang"></label><input asp-for="TenHang" maxlength="50" required /><span asp-validation-for="TenHang"></span></div>
+  <div class="form-row"><label asp-for="MaLoai"></label><select asp-for="MaLoai" asp-items="ViewBag.Categories" required><option value="0">-- Chọn loại hàng --</option></select><span asp-validation-for="MaLoai"></span></div>
+  <div class="form-row"><label asp-for="Gia"></label><input asp-for="Gia" type="number" min="100" max="5000" step="1" required /><span asp-validation-for="Gia"></span></div>
+  <div class="form-row"><label for="imageFile">Ảnh hàng hóa (.jpg, .png, .gif, .tiff)</label><input id="imageFile" type="file" name="imageFile" accept=".jpg,.png,.gif,.tiff" required /><span class="field-validation-error">@Html.ValidationMessage("imageFile")</span></div>
+  <button type="submit" class="btn-submit">Lưu hàng hóa</button>
+  <a asp-controller="Home" asp-action="Index">Quay lại</a>
+</form>
+</div>

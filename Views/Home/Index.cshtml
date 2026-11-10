@@ -1,0 +1,28 @@
+@model IEnumerable<HangHoa>
+@{
+    ViewBag.StudentName = ViewBag.StudentName ?? "Họ Tên Sinh Viên";
+}
+
+@if (TempData["Success"] is string success)
+{
+    <div class="notice">@success</div>
+}
+
+<div class="content_top">
+
+    <div class="heading">
+        <h3>@ViewBag.StudentName - Danh sách hàng hóa (Giá từ 100)</h3>
+    </div>
+
+    <div class="see">
+        <p>@Model.Count() sản phẩm</p>
+    </div>
+
+    <div class="clear">
+
+    </div>
+</div>
+
+<div id="product-area">
+    @await Html.PartialAsync("_ProductList", Model)
+</div>
